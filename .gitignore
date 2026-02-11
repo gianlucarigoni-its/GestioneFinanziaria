@@ -31,3 +31,6 @@ Thumbs.db
 .parcel-cache/
 .next/
 out/
+
+.gitGraph/
+
