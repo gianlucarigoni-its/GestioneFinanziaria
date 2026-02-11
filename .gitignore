@@ -19,7 +19,7 @@ pnpm-debug.log*
 logs/
 *.log
 
-# OS / editor
+	# OS / editor
 .DS_Store
 Thumbs.db
 .idea/
@@ -31,3 +31,6 @@ Thumbs.db
 .parcel-cache/
 .next/
 out/
+
+.gitGraph
+
