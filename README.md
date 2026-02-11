@@ -106,10 +106,6 @@ GestioneFinanziaria/
         charts.js
         budget.js
     package.json (opzionale)
-
----
-
-
-
   .gitignore
   README.md
+
