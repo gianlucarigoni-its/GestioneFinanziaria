@@ -32,5 +32,9 @@ Thumbs.db
 .next/
 out/
 
+<<<<<<< HEAD
 .gitGraph
+=======
+.gitGraph/
+>>>>>>> supabase
 
