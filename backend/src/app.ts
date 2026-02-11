@@ -14,6 +14,16 @@ async function createGigiluca(){
     console.log(user.data.user);
 }
 
-createGigiluca();
+async function logIngigiluca(){
+    const user = await supabase.auth.signInWithPassword({
+        "email" : "gigilucagglc@gmail.com",
+        "password" : "123456789"
+    })
+
+    console.log(user);
+}
+
+logIngigiluca();
+
 export default app;
 
