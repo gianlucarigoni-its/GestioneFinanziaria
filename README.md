@@ -63,9 +63,7 @@ Un’applicazione web full stack per la gestione avanzata delle spese personali:
   - CORS, Helmet, middleware custom per auth
 
 - **Database / Auth**
-  - Supabase (PostgreSQL + Auth)  
-  - Tabelle: `categories`, `expenses`, `budgets`  
-  - Row Level Security (RLS) attivata sulle tabelle utente-dipendenti
+  - Supabase (PostgreSQL + Auth)
 
 ---
 
@@ -76,19 +74,9 @@ GestioneFinanziaria/
   backend/
     src/
       routes/
-        auth.ts
-        expenses.ts
-        stats.ts
-        budgets.ts
       middlewares/
-        auth.ts
       services/
-        expensesService.ts
-        budgetsService.ts
-        statsService.ts
       config/
-        supabase.ts
-        env.ts
       index.ts
     .env
     tsconfig.json
@@ -98,14 +86,7 @@ GestioneFinanziaria/
     src/
       index.html
       css/
-        styles.css
       js/
-        app.js
-        auth.js
-        expenses.js
-        charts.js
-        budget.js
-    package.json (opzionale)
-  .gitignore
+    .gitignore
   README.md
 
