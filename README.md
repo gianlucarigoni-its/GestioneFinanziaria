@@ -75,7 +75,6 @@ GestioneFinanziaria/
     src/
       routes/
       middlewares/
-      services/
       config/
       index.ts
     .env
@@ -89,4 +88,5 @@ GestioneFinanziaria/
       js/
     .gitignore
   README.md
+
 
