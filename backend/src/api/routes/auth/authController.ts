@@ -6,9 +6,8 @@ export async function Login(req: Request, res: Response){
         const inEmail : string = req.body.email as string;
         const inPassword : string = req.body.password as string;
         
-        if (!inEmail || !inPassword) {
+        if (!inEmail || !inPassword)
             return res.status(400).json({ message: "Email e password sono obbligatorie" });
-        }
 
         const login = await supabase.auth.signInWithPassword({
             "email" : inEmail,
@@ -28,8 +27,36 @@ export async function Login(req: Request, res: Response){
             return res.status(200).send("Login riuscito");
              
     }catch(err){
-        console.error("Errore nel login:", err);
+        console.error("Errore nel login: ", err);
         return res.status(500).json({ message: "Errore interno del server" });
     }
-   
+}
+
+export async function Register(req: Request, res: Response){
+    try{
+        const upEmail : string = req.body.email as string;
+        const upPassword : string = req.body.password as string;
+
+        if(!upEmail || !upPassword)
+            return res.status(400).json({ message: "Email e password sono obbligatorie" });
+
+        const register = await supabase.auth.signUp({
+            "email" : upEmail,
+            "password" : upPassword
+        })
+
+        if(register.error){
+            return res.status(401).json({
+                    success: false,
+                    message: "Credenziali non valide",
+                    details: register.error.message
+                });
+        }
+
+        return res.status(200).send("Registrazione utente riuscita con successo");
+
+    }catch (err){
+        console.error("Errore nel Register: ", err);
+        return res.status(500).json({message: "Registrazione fallita"});
+    }
 }
