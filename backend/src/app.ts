@@ -1,29 +1,16 @@
 import express from 'express';
 import bodyparser from 'body-parser';
-import { supabase } from "./config/supabase";
+import cors from 'cors';
+import morgan from 'morgan';
+import authRouter from "./api/routes/auth/authRouter";
 
 const app = express();
+
+app.use(cors());
+app.use(morgan('tiny'));
 app.use(bodyparser.json());
 
-async function createGigiluca(){
-    const user = await supabase.auth.signUp({
-        "email" : "gigilucagglc@gmal.com",
-        "password" : "123456789"
-    });
-
-    console.log(user.data.user);
-}
-
-async function logIngigiluca(){
-    const user = await supabase.auth.signInWithPassword({
-        "email" : "gigilucagglc@gmail.com",
-        "password" : "123456789"
-    })
-
-    console.log(user);
-}
-
-logIngigiluca();
+app.use("/auth", authRouter);
 
 export default app;
 
