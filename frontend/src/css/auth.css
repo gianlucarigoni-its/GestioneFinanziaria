@@ -5,7 +5,7 @@ body {
     justify-content: center; /* Centra orizzontalmente */
     align-items: center;     /* Centra verticalmente */
     min-height: 100vh;       /* Occupa tutta l'altezza del browser */
-    background-color: #000000; /* Sfondo nero */
+    background-color: #0d0d0d; /* Sfondo nero */
     font-family: sans-serif;
 }
 
@@ -86,8 +86,9 @@ body {
 
 .button1 {
   padding: 0.5em;
-  padding-left: 1.1em;
-  padding-right: 1.1em;
+  padding-left: 2.3em;
+  padding-right: 2.3em;
+  margin-bottom: 3em;
   border-radius: 5px;
   margin-right: 0.5em;
   border: none;
@@ -103,6 +104,7 @@ body {
 }
 
 .button2 {
+  margin-bottom: 3em;
   padding: 0.5em;
   padding-left: 2.3em;
   padding-right: 2.3em;
@@ -112,6 +114,8 @@ body {
   transition: 0.4s ease-in-out;
   background-color: #252525;
   color: white;
+
+  
 }
 
 .button2:hover {

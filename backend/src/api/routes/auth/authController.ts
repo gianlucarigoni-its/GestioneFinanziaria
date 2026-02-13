@@ -5,7 +5,8 @@ export async function Login(req: Request, res: Response){
     try{
         const inEmail : string = req.body.email as string;
         const inPassword : string = req.body.password as string;
-        
+        res.setHeader('Content-Type', 'application/json');
+
         if (!inEmail || !inPassword)
             return res.status(400).json({ message: "Email e password sono obbligatorie" });
 
@@ -22,9 +23,13 @@ export async function Login(req: Request, res: Response){
             }
 
             if(!(login.data.user?.aud === "authenticated"))
-                return res.status(400).send("Login fallito");
+                return res.status(400).json({message: "Login fallito"});
 
-            return res.status(200).send("Login riuscito");
+            return res.status(200).json({
+                                            succes: true,
+                                            message: "Login riuscito con succcesso",
+                                            status: login.data.user.aud
+                                        });
              
     }catch(err){
         console.error("Errore nel login: ", err);
@@ -36,6 +41,7 @@ export async function Register(req: Request, res: Response){
     try{
         const upEmail : string = req.body.email as string;
         const upPassword : string = req.body.password as string;
+        res.setHeader('Content-Type', 'application/json');
 
         if(!upEmail || !upPassword)
             return res.status(400).json({ message: "Email e password sono obbligatorie" });
@@ -53,7 +59,11 @@ export async function Register(req: Request, res: Response){
                 });
         }
 
-        return res.status(200).send("Registrazione utente riuscita con successo");
+        return res.status(200).json({
+                                        succes: true,
+                                        message: "Registrazione utente riuscita con successo",
+                                        status: register.data.user?.aud
+                                    });
 
     }catch (err){
         console.error("Errore nel Register: ", err);
